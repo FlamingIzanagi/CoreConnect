@@ -1,0 +1,24 @@
+# CoreConnect by FlamingIzanagi
+
+# When true, each received route signal is printed as:
+# Redirection ID [id] from (player). Redirecting to "server".
+log_redirections: false
+
+rank_restriction:
+  # When true, only players belonging to allowed LuckPerms groups can be redirected.
+  enabled: false
+  # LuckPerms group names that are allowed to use CoreConnect routing (case-insensitive).
+  allowed_groups:
+    - "vip"
+    - "premium"
+    - "owner"
+
+respect_auth:
+  # When true, CoreConnect uses the nLogin API to securely wait for user authentication before routing.
+  # The destination ticket is held in a concurrent in-memory map until nLogin reports a successful login or register.
+  enabled: false
+
+# Maps the integer sent by the client mod to a registered Velocity server name.
+server_routes:
+  1: "lobby_general"
+  2: "survival_general"

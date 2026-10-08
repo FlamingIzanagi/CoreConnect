@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.flamingizanagi'
+version = '1.0.0'
+
+def velocityApiVersion = '4.1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+    maven {
+        name = 'nickuc'
+        url = 'https://repo.nickuc.com/maven-releases/'
+    }
+}
+
+dependencies {
+    compileOnly "com.velocitypowered:velocity-api:${velocityApiVersion}"
+    annotationProcessor "com.velocitypowered:velocity-api:${velocityApiVersion}"
+    compileOnly 'net.luckperms:api:5.4'
+    compileOnly 'com.nickuc.login:api:10.4'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 25
+}
+
+jar {
+    archiveFileName.set('CoreConnect-Plugin-1.0.jar')
+}
